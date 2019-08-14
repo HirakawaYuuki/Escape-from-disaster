@@ -1,2 +1,39 @@
-<h1>User::Timelines#show</h1>
-<p>Find me in app/views/user/timelines/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+		　<%= attachment_image_tag @user, :profile_image, class: "user_image", format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			<table class="table table-stryped">
+				<tbody>
+					<tr>
+						<td><h6><%= @user.kana_family_name %></h6></td>
+						<td><h6><%= @user.kana_first_name %></h6></td>
+					</tr>
+					<tr>
+						<td><%= @user.family_name %></td>
+						<td><%= @user.first_name %></td><br>
+					</tr>
+					<tr>
+						<td>メールアドレス<br>
+						<%= @user.email %></td>
+					</tr>
+					
+				</tbody>
+			</table>
+			<%= link_to "ユーザー情報を編集する", edit_user_user_path(current_user), class: "btn btn-default" %>
+		</div>
+		<div class="col-lg-9">
+
+			<table class="table table-stryped">
+				<thead><%= @user.family_name %><%= @user.first_name %>さんの投稿一覧</thead>
+				<% @user.timeline.each do |timeline| %>
+				<tr>
+					<td><%= timeline.created_at(@timeline.id) %></td>
+					<td><%= timeline.timeline(@timeline.id) %></td>
+					<td><%= link_to "削除", user_timeline_path(@timeline), class: "btn btn-danger", data: {:comfirm => '削除します。よろしいですか？'}, method: :delete %></td>
+				</tr>
+				<% end %>
+			</table>
+			<%= paginate @timeline %>
+		</div>
+	</div>
+</div>

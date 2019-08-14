@@ -1,2 +1,68 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+
+              <thead>ユーザー情報編集</thead>
+
+
+				<%= form_for @user,:url => {:action => :update} do |f| %>
+				<table>
+			    <tbody>
+				<tr>
+				  <div class="form-group has-icon">
+					  <%= f.label :family_name, "氏名(姓)" %><br>
+					  <%= f.text_field :family_name, class: "family_name", autofocus: true, autocomplete: "family_name" %>
+				  </div>
+				  <div>
+				  	  <%= f.label :first_name, "氏名(名)" %><br>
+				  	  <%= f.text_field :first_name, class: "first_name", autofocus: true, autocomplete: "first_name" %>
+				  </div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :kana_family_name,"フリガナ（姓）" %><br>
+			    	  <%= f.text_field :kana_family_name, class: "kana_family_name", autocomplete: "kana_family_name" %>
+			        </div>
+			        <div>
+			          <%= f.label :kana_first_name,"フリガナ（名）" %><br>
+			          <%= f.text_field :kana_first_name, class: "kana_first_name", autocomplete: "kana_first_name" %>
+			        </div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :email, "メールアドレス" %><br>
+			    	  <%= f.email_field :email, class: "email", autocomplete: "email" %>
+			        </div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :profile_image, "プロフィール画像" %>
+			    	  <%= f.attachment_field :profile_image, class: "profile_image", placeholder: "プロフィール画像" %>
+			    	</div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :password, "パスワード" %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password" %>
+                    </div>
+                </tr>
+
+                <tr>
+                	<div>
+                      <%= f.label :password_confirmation, "パスワード確認" %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                    </div>
+			    </tr>
+			    <div class="action">
+			    	<%= f.submit "変更する" %>
+			    </div>
+			    <% end %>
+			    <%= link_to "退会する", user_user_path(@user), class: "btn btn-warning", data: {:comfirm => '本当に退会しますか？'}, method: :delete %>
+
+    
+                </tbody>
+                </table>
+   </div>
+</div>

@@ -1,22 +1,25 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
+		　<%= attachment_image_tag @user, :profile_image, class: "user_image", format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 			<table class="table table-stryped">
-				<thead>
-					<h2>User Info</h2>
-				</thead>
-
 				<tbody>
 					<tr>
-						<th><%= @user.kana_family_name %></th>
-						<th><%= @user.kana_first_name %></th>
+						<td><h6><%= @user.kana_family_name %></h6></td>
+						<td><h6><%= @user.kana_first_name %></h6></td>
 					</tr>
 					<tr>
-						<th><%= @user.family_name %></th>
-						<th><%= @user.first_name %></th>
+						<td><%= @user.family_name %></td>
+						<td><%= @user.first_name %></td><br>
 					</tr>
+					<tr>
+						<td>メールアドレス<br>
+						<%= @user.email %></td>
+					</tr>
+					
 				</tbody>
 			</table>
+			<%= link_to "ユーザー情報を編集する", edit_user_user_path(current_user), class: "btn btn-default" %>
 		</div>
 	</div>
 </div>
