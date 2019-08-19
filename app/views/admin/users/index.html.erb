@@ -1,2 +1,41 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>ユーザー一覧</h2>
+			<div id="nav-search">
+				<%= form_tag admin_users_path, :method => 'get' do %>
+				<p class="text-right">
+					<%= text_field_tag :search , params[:search] %>
+
+					<%= submit_tag "検索", :name => nil %>
+				</p>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="col-xs-12">
+			<table class="table table-stryped">
+				<thead>
+					<tr>
+					<th>name</th>
+					<th>Email</th>
+					<tr>
+				</thead>
+
+				<% @users.each do |user| %>
+				<tbody>
+					<tr>
+						<td><%= link_to admin_timeline_path(user.id) do %>
+							<%= user.family_name %><%= user.first_name %>
+							<% end %>
+						</td>
+						<td><%= user.email %></td>
+					</tr>
+				</tbody>
+				<% end %>
+
+			</table>
+			<%= paginate @users %>
+		</div>
+	</div>
+</div>

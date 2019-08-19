@@ -1,2 +1,53 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		       <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+					<li style="color: red">
+						<%= message %>
+					</li>
+					    <% end %>
+				</ul>
+
+              <thead>ユーザー情報編集</thead>
+
+
+				<%= form_for @user,:url => {:action => :update} do |f| %>
+				<table>
+			    <tbody>
+				<tr>
+				  <div class="form-group has-icon">
+					  <%= f.label :family_name, "氏名(姓)" %><br>
+					  <%= f.text_field :family_name, class: "family_name", autofocus: true, autocomplete: "family_name" %>
+				  </div>
+				  <div>
+				  	  <%= f.label :first_name, "氏名(名)" %><br>
+				  	  <%= f.text_field :first_name, class: "first_name", autofocus: true, autocomplete: "first_name" %>
+				  </div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :kana_family_name,"フリガナ（姓）" %><br>
+			    	  <%= f.text_field :kana_family_name, class: "kana_family_name", autocomplete: "kana_family_name" %>
+			        </div>
+			        <div>
+			          <%= f.label :kana_first_name,"フリガナ（名）" %><br>
+			          <%= f.text_field :kana_first_name, class: "kana_first_name", autocomplete: "kana_first_name" %>
+			        </div>
+			    </tr>
+			    <tr>
+			    	<div>
+			    	  <%= f.label :email %><br>
+			    	  <%= f.email_field :email, class: "email", autocomplete: "email" %>
+			        </div>
+			    </tr>
+			    <div class="action">
+			    	<%= f.submit "変更する" %>
+			    </div>
+			    <% end %>
+			     <%= link_to "ユーザーを削除する", user_user_path(@user), class: "btn btn-warning",  "data-confirm" => "本当に削除しますか？", method: :delete %>
+
+    
+                </tbody>
+                </table>
+   </div>
+</div>

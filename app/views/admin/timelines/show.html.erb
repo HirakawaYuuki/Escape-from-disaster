@@ -4,7 +4,6 @@
 		 <p style="color: green">
 			<span class="flash"><%= h(flash[:notice]) %></span>
 		 </p>
-		</div>
 		<div class="col-lg-3">
 		　<%= attachment_image_tag @user, :profile_image, class: "user_image", format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 			<table class="table table-stryped">
@@ -25,36 +24,22 @@
 				</tbody>
 			</table>
 			<div>
-			  <%= link_to "ユーザー情報を編集する", edit_user_user_path(@user), class: "btn btn-default" %>
-		    </div>
-		    <div>
-		      <%= link_to "タイムラインを投稿する", new_user_timeline_path(@user), class: "btn btn-primary" %>
+			  <%= link_to "ユーザー情報を編集する", edit_admin_user_path(@user.id), class: "btn btn-default" %>
 		    </div>
 		</div>
 		<div class="col-lg-9">
 
 			<table class="table table-stryped">
 				<thead><h3><%= @user.family_name %><%= @user.first_name %>さんの投稿一覧</h3></thead>
-				<% @user.timelines.each do |timeline| %>
+				<% @timeline.each do |timeline| %>
 				<tr>
 					<td><%= timeline.created_at %></td>
 					<td><%= attachment_image_tag timeline, :image, class: "image", format: 'jpeg', size: "100x100" %></td>
 					<td><%= timeline.timeline %></td>
-					<td><%= timeline.user.family_name %><%= timeline.user.first_name %></td>
-					<td><%= link_to "削除", user_timeline_path(timeline), class: "btn btn-danger", "data-confirm" => "本当に削除しますか？", method: :delete %></td>
+					<td><%= link_to "削除", user_timeline_path(timeline), class: "btn btn-danger",  "data-confirm" => "本当に削除しますか？", method: :delete %></td>
 				</tr>
 				<% end %>
 			</table>
 			<%= paginate @timeline %>
-		</div>
-		<div class="col-lg-3">
-			<%= link_to "みんなのタイムライン", user_timelines_path, class: "btn btn-info" %>
-		</div>
-		<div class="col-lg-3">
-			<%= link_to "避難施設を探そう！！", user_user_path(current_user), class: "btn btn-success" %>
-		</div>
-		<div class="col-lg-3">
-			<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
-		</div>
 	</div>
 </div>

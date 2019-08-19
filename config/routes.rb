@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  get 'admin/users/top'
   get 'unsubscribe/top'
   root 'user/users#top'
 

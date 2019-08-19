@@ -15,11 +15,14 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <span>Bookers</span>
+      <span style="color: red"><h5>Escape from disaster!!</h5></span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li>
+            <font style="color: white"><h3>ようこそ<%= current_user.family_name %><%= current_user.first_name %>さん!</h3></font>
+          </li>
           <li>
             <%= link_to "MAP", user_user_path(current_user), class: "glyphicon glyphicon-search map" %>
           </li>

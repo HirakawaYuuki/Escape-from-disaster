@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EFD</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body>
+    
+ 
+
+  <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span style="color: red"><h5>Escape from disaster!!</h5></span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li>
+            <font style="color: white"><h3>管理者用ページ</h3></font>
+          </li>
+          <li>
+            <%= link_to "top", admin_users_top_path, class: "glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+            <%= link_to "Users", admin_users_path, class: "glyphicon glyphicon-user" %>
+          </li>
+          <li>
+            <%= link_to "Timelines", admin_timelines_path, class: "glyphicon glyphicon-th-list timelines" %>
+          </li>
+          
+          <li>
+            <%= link_to " log out", destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+          </li>
+
+         
+      </ul>
+    </nav>
+  </div>
+</header>
+    <%= yield %>
+
+
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>

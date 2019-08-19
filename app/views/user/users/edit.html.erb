@@ -1,5 +1,12 @@
 <div class="container">
 	<div class="row">
+		       <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+					<li style="color: red">
+						<%= message %>
+					</li>
+					    <% end %>
+				</ul>
 
               <thead>ユーザー情報編集</thead>
 
@@ -39,27 +46,12 @@
 			    	  <%= f.attachment_field :profile_image, class: "profile_image", placeholder: "プロフィール画像" %>
 			    	</div>
 			    </tr>
-			    <tr>
-			    	<div>
-			    	  <%= f.label :password, "パスワード" %>
-                      <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                      <% end %><br />
-                      <%= f.password_field :password, autocomplete: "new-password" %>
-                    </div>
-                </tr>
-
-                <tr>
-                	<div>
-                      <%= f.label :password_confirmation, "パスワード確認" %><br />
-                      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                    </div>
-			    </tr>
+			    
 			    <div class="action">
 			    	<%= f.submit "変更する" %>
 			    </div>
 			    <% end %>
-			    <%= link_to "退会する", user_user_path(@user), class: "btn btn-warning", data: {:comfirm => '本当に退会しますか？'}, method: :delete %>
+			    <%= link_to "退会する", user_user_path(@user), class: "btn btn-warning", "data-confirm" => "本当に削除しますか？", method: :delete %>
 
     
                 </tbody>
