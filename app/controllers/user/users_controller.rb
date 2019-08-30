@@ -1,5 +1,6 @@
 class User::UsersController < ApplicationController
 	before_action :authenticate_user!, only:[:new, :index, :edit, :create, :show, :update, :destroy]
+ 
  def top
 
  end
@@ -56,5 +57,8 @@ class User::UsersController < ApplicationController
   def timeline_params
   	params.require(:timeline).permit(:image, :timeline, :created_at)
   	
+  end
+  def place_params
+      params.require(:place).permit(:prefecture, :address_city, :address_street, :address)
   end
 end

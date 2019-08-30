@@ -16,8 +16,7 @@
 				<tr>
 					<td><%= timeline.created_at %></td>
 					<td><%= timeline.timeline %></td>
-					<td><%= link_to "削除", admin_timeline_path(@timeline), class: "btn btn-danger", data: {:comfirm => '削除します。よろしいですか？'}, method: :delete %></td>
-				</tr>
+					
 				<% end %>
 			</table>
 			<%= paginate @timelines %>

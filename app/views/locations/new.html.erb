@@ -1,0 +1,176 @@
+<div class="container">
+	<div class="row">
+
+      <h1>New Location</h1>
+
+       <%= render 'form', location: @location %>
+
+      <div class="col-lg-12">
+    <table cellspacing="15">
+	 <thead><h3>地域検索</h3></thead>
+	  <tr>
+		<td><strong style="color: green">北海道</strong></td>
+		<td></td>
+		<td><%= link_to '北海道', '/pdf/hinan_hokkaido.pdf' %></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">東北地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '青森県', '/pdf/hinan_aomori.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '岩手県', '/pdf/hinan_iwate.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '秋田県', '/pdf/hinan_akita.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '宮城県', '/pdf/hinan_miyagi.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '山形県', '/pdf/hinan_yamagata.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '福島県', '/pdf/hinan_fukushima.pdf' %></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">関東地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '茨城県', '/pdf/hinan_ibaraki.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '栃木県', '/pdf/hinan_tochigi.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '群馬県', '/pdf/hinan_gunma.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '埼玉県', '/pdf/hinan_saitama.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '千葉県', '/pdf/hinan_chiba.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '東京都', '/pdf/hinan_tokyo.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '神奈川県', '/pdf/hinan_kanagawa.pdf' %></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">甲信越地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '新潟県', '/pdf/hinan_niigata.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '山梨県', '/pdf/hinan_yamanashi.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '長野県', '/pdf/hinan_nagano.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">北陸地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '富山県', '/pdf/hinan_toyama.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '石川県', '/pdf/hinan_ishikawa.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '福井県', '/pdf/hinan_fukui.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">東海地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '岐阜県', '/pdf/hinan_gifu.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '静岡県', '/pdf/hinan_shizuoka.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '愛知県', '/pdf/hinan_aichi.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '三重県', '/pdf/hinan_mie.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">近畿地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '滋賀県', '/pdf/hinan_shiga.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '京都府', '/pdf/hinan_kyoto.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '大阪府', '/pdf/hinan_osaka.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '兵庫県', '/pdf/hinan_hyogo.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '奈良県', '/pdf/hinan_nara.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '和歌山県', '/pdf/hinan_wakayama.pdf' %></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">中国地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '鳥取県', '/pdf/hinan_tottori.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '島根県', '/pdf/hinan_shimane.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '岡山県', '/pdf/hinan_okayama.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '広島県', '/pdf/hinan_hiroshima.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '山口県', '/pdf/hinan_yamaguchi.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">四国地方</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '徳島県', '/pdf/hinan_tokushima.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '香川県', '/pdf/hinan_kagawa.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '愛媛県', '/pdf/hinan_ehime.pdf' %></td>
+	  	<td></td>
+	  	<td><%= link_to '高知県', '/pdf/hinan_kochi.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">九州地方</strong></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '福岡県', '/pdf/hinan_fukuoka.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '佐賀県', '/pdf/hinan_saga.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '宮崎県', '/pdf/hinan_miyazaki.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '大分県', '/pdf/hinan_oita.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '長崎県', '/pdf/hinan_nagasaki.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '鹿児島県', '/pdf/hinan_kagoshima.pdf' %></td>
+	  	<td>&nbsp;</td>
+	  	<td><%= link_to '熊本県', '/pdf/hinan_kumamoto.pdf' %></td>
+	  </tr>
+	  <tr>
+	  	<td><strong style="color: green">沖縄</strong></td>
+	  	<td></td>
+	  	<td><%= link_to '沖縄県', '/pdf/hinan_okinawa.pdf' %></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	
+    </table>
+      </div>
+      <%= link_to 'Back', locations_path %>
+
+    </div>
+</div>
+
+

@@ -21,9 +21,9 @@ class User::TimelinesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @timeline = Timeline.new
-	@timeline = Timeline.where(user_id: @user.id)
-	#@timeline = Timeline.find(params[:id])
-	@timeline = Timeline.page(params[:page]).per(10)
+	  @timeline = Timeline.where(user_id: @user.id)
+	  #@timeline = Timeline.find(params[:id])
+	  @timeline = Timeline.page(params[:page]).per(10)
   end
 
   def new

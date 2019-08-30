@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'net/http'
+require 'uri'
+require 'json'
+
+uri = URI.parse('https://cyberjapandata.gsi.go.jp/xyz/skhb05/{z}/{x}/{y}.geojson')
+json = Net::HTTP.get(uri)
+result = JSON.parse(json)
