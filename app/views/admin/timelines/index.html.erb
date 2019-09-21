@@ -5,18 +5,19 @@
 			<table class="table table-stryped">
 				<thead><h3>ユーザーの投稿</h3></thead>
 				<div id="nav-search">
-					<%= form_tag user_timelines_path, :method => 'get' do %>
+					<%= form_tag admin_timelines_path, :method => 'get' do %>
 					<p class="text-right">
 						<%= text_field_tag :search, params[:search] %>
-						<%= submit_tag "検索", :timeline => nil %>
+						<%= submit_tag "検索", :user => nil %>
 					</p>
 					<% end %>
 				</div>
 				<% @timelines.each do |timeline| %>
 				<tr>
-					<td><%= timeline.created_at %></td>
+					<td><%= timeline.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
 					<td><%= timeline.timeline %></td>
-					
+					<td><%= timeline.user.family_name %><%= timeline.user.first_name %></td>
+
 				<% end %>
 			</table>
 			<%= paginate @timelines %>

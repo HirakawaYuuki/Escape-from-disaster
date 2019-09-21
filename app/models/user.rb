@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :timelines, dependent: :destroy
-         has_many :addresses, dependent: :destroy
+         
 
          attachment :profile_image
          validates :family_name, presence: true

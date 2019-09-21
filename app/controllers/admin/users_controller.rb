@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
 
   def index
   	@users = User.all
-  	@users =User.page(params[:page]).per(20).search(params[:search])
+  	@users =User.page(params[:page]).per(20).search(params[:search]).order(id: "DESC")
   end
 
 
@@ -21,15 +21,16 @@ class Admin::UsersController < ApplicationController
 	  	flash[:notice] = "ユーザー情報が変更されました！"
 		redirect_to admin_timeline_path(@user.id)
 	  end
+  end
+  
   def destroy
 
   	@user = User.find(params[:id])
-  	@user.destroy
-  	redirect_to 'admin/users/top'
+    @user.destroy
+  	redirect_to admin_users_path
   	
   end
   	
-  end
 
   private
   def user_params

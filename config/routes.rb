@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
   namespace :user do
-   resources :users, :timelines, :addresses
+   resources :users, :timelines
 end
 
   namespace :admin do

@@ -3,14 +3,14 @@ class Admin::TimelinesController < ApplicationController
      layout 'admin'
   def index
   	@timelines = Timeline.all
-  	@timelines = Timeline.page(params[:page]).per(10).search(params[:search])
+  	@timelines = Timeline.page(params[:page]).per(10).search(params[:search]).order(id: "DESC")
   end
 
   def show
-  	@user = User.all
+  	@user = User.find(params[:id])
 	  @timeline = Timeline.where(user_id: @user.id)
 	  #@timeline = Timeline.find(params[:id])
-	  @timeline = Timeline.page(params[:page]).per(10)
+	  @timeline = Timeline.page(params[:page]).per(10).order(id: "DESC")
   	
   end
 
@@ -19,7 +19,7 @@ class Admin::TimelinesController < ApplicationController
   def destroy
   	@timeline = Timeline.find(params[:id])
   	@timeline.destroy
-  	redirect_to admin_timelines_path
+  	redirect_to admin_timeline_path(current_user)
   end
   private
   def user_params

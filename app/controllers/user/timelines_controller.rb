@@ -4,7 +4,7 @@ class User::TimelinesController < ApplicationController
   	@user = current_user
   	@users = User.all.includes(:timelines)
   	@timelines = Timeline.all
-  	@timelines = Timeline.page(params[:page]).per(10).search(params[:search])
+  	@timelines = Timeline.page(params[:page]).per(10).search(params[:search]).order(id: "DESC")
   end
 
   def create
@@ -23,7 +23,12 @@ class User::TimelinesController < ApplicationController
     @timeline = Timeline.new
 	  @timeline = Timeline.where(user_id: @user.id)
 	  #@timeline = Timeline.find(params[:id])
-	  @timeline = Timeline.page(params[:page]).per(10)
+	  @timeline = Timeline.page(params[:page]).per(10).order(id: "DESC")
+    if current_user == @user
+    else
+      flash[:notice] = "他のユーザーページには入れません"
+      redirect_to user_timelines_path
+    end
   end
 
   def new

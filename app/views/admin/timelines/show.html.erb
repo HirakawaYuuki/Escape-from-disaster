@@ -30,13 +30,14 @@
 		<div class="col-lg-9">
 
 			<table class="table table-stryped">
-				<thead><h3><%= @user.family_name %><%= @user.first_name %>さんの投稿一覧</h3></thead>
-				<% @timeline.each do |timeline| %>
+				<thead><h3>投稿一覧</h3></thead>
+				<% @user.timelines.each do |timeline| %>
 				<tr>
-					<td><%= timeline.created_at %></td>
+					<td><%= timeline.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
 					<td><%= attachment_image_tag timeline, :image, class: "image", format: 'jpeg', size: "100x100" %></td>
 					<td><%= timeline.timeline %></td>
-					<td><%= link_to "削除", user_timeline_path(timeline), class: "btn btn-danger",  "data-confirm" => "本当に削除しますか？", method: :delete %></td>
+					<td><%= timeline.user.family_name %><%= timeline.user.first_name %></td>
+					<td><%= link_to "削除", admin_timeline_path(timeline), class: "btn btn-danger",  "data-confirm" => "本当に削除しますか？", method: :delete %></td>
 				</tr>
 				<% end %>
 			</table>

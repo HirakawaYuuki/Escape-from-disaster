@@ -18,13 +18,19 @@ class User::UsersController < ApplicationController
 
  def show
   	@user = User.find(params[:id])
+    if current_user == @user
+    else
+      flash[:notice] = "他のユーザーページには入れません"
+      redirect_to root_path(@user)
+    end
  end
 
  def edit
      @user = User.find(params[:id])
     if current_user == @user
     else
-      redirect_to user_timeline_path(@user)
+      flash[:notice] = "他のユーザーページには入れません"
+      redirect_to user_timelines_path
     end
 
  end
@@ -43,8 +49,8 @@ class User::UsersController < ApplicationController
 
  def destroy
   	@user = User.find(params[:id])
-  	@user.destroy
-  	redirect_to unsubscribe_top_path
+    if current_user = @user.destroy
+  	   redirect_to unsubscribe_top_path
   	
  end
 
